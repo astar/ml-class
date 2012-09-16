@@ -18,6 +18,16 @@ for iter = 1:num_iters
     %
 
 
+             for iter1 = 1:length(theta)
+                 temp(iter1) = theta(iter1) - alpha*1/m*sum((theta'*X' - y' )*X(:,iter1));
+             end
+
+             for iter1 = 1:length(theta)
+                  theta(iter1) = temp(iter1);
+             end
+              
+
+
 
 
 
