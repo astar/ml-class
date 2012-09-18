@@ -20,11 +20,11 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 h = 1./(1 + exp(-theta'*X'));
-J = -1/(m)*sum(((y'*log10(h)' +(1 - y')*log10(h)')));
+J = 1/m*sum(-y'*log(h') - (1 - y')*log(1 - h'));
 
-             for iter1 = 1:length(theta)
-		 grad(iter1) = 1/m*sum((h - y)*X(:,iter1));
-             end
+for iter1 = 1:length(theta)
+    grad(iter1) = 1/m*sum((h - y')*X(:,iter1));
+end
 
 
 
